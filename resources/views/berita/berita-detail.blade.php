@@ -53,7 +53,7 @@
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1>Berita Detail</h1>
+              <h1>Berita Detail </h1>
               <p class="mb-0">Berikut ini adalah penjelasan tentang Berita {{$beritaDetail->judul}}</p>
             </div>
           </div>
