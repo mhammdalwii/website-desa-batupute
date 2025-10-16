@@ -35,22 +35,9 @@
     <link href="{{asset('profile/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
 
     <!-- Main CSS File -->
-    <link href="{{asset('profile/css/main.css')}}?v={{ time() }}" rel="stylesheet" />
+    <link href="{{asset('profile/css/main.css')}}" rel="stylesheet" />
 <style>
-  .accent {
-    color: #2a9d8f;
-    font-weight: bold;
-  }
-
-  .besar {
-    font-size: 2rem; /* atau pakai 150% jika ingin proporsional */
-  }
-
-  @media (min-width: 768px) {
-    .besar {
-      font-size: 2.5rem;
-    }
-  }
+  
 </style>
   </head>
 
@@ -76,9 +63,8 @@
                 <span id="typed-text" class="h3 fw-bold accent"></span>
               </h2>
               <p>
-                Media informasi dan komunikasi warga Desa Batupute, Kecamatan
-                Soppeng Riaja, Kabupaten Barru. Bersama kita bangun desa yang
-                maju, mandiri, dan sejahtera.
+               Desa Batupute "MANTAP dan ASYIK",
+               (Prima Pelayanannya, Transparan, Akuntabel, Profesional, Dan Anti Kesyirikan).
               </p>
               <div class="d-flex">
                 <h6>Motto : "Utamakan Sholat Dan Pelayanan Prima".</h6>
@@ -695,7 +681,36 @@
       class="scroll-top d-flex align-items-center justify-content-center"
       ><i class="bi bi-arrow-up-short"></i
     ></a>
+    @php
+        use App\Models\Visitor;
+        use Carbon\Carbon;
 
+        $today = Visitor::whereDate('visit_date', Carbon::today())->count();
+        $yesterday = Visitor::whereDate('visit_date', Carbon::yesterday())->count();
+        $thisWeek = Visitor::whereBetween('visit_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $lastWeek = Visitor::whereBetween('visit_date', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()])->count();
+        $thisMonth = Visitor::whereMonth('visit_date', Carbon::now()->month)->count();
+        $lastMonth = Visitor::whereMonth('visit_date', Carbon::now()->subMonth()->month)->count();
+        $total = Visitor::count();
+    @endphp
+    <div class="visitor-counter">
+      <button id="btnKunjungan" class="btn shadow-sm">
+        <i class="bi bi-eye-fill"></i>
+        <span class="text-label">Kunjungan Hari Ini: <strong>{{ $today }}</strong></span>
+      </button>
+
+      <div class="tooltip-custom">
+        <table class="table table-striped table-borderless align-middle">
+          <tr><td>Hari Ini</td><td class="text-end"><strong>{{ $today }}</strong></td></tr>
+            <tr><td>Kemarin</td><td class="text-end"><strong>{{ $yesterday }}</strong></td></tr>
+            <tr><td>Minggu Ini</td><td class="text-end"><strong>{{ $thisWeek }}</strong></td></tr>
+            <tr><td>Minggu Lalu</td><td class="text-end"><strong>{{ $lastWeek }}</strong></td></tr>
+            <tr><td>Bulan Ini</td><td class="text-end"><strong>{{ $thisMonth }}</strong></td></tr>
+            <tr><td>Bulan Lalu</td><td class="text-end"><strong>{{ $lastMonth }}</strong></td></tr>
+            <tr class="border-top border-light"><td><strong>Total</strong></td><td class="text-end"><strong>{{ $total }}</strong></td></tr>
+        </table>
+      </div>
+    </div>
     <!-- Preloader -->
     <div id="preloader"></div>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
