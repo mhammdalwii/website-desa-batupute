@@ -13,9 +13,9 @@
         <strong>Desa Batupute</strong> adalah desa yang terletak di Kecamatan Barru, Kabupaten Barru, Sulawesi Selatan.
       </p>
       <div class="social-links d-flex justify-content-center justify-content-md-start mt-3">
-        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.facebook.com/share/17aJr72cCM/" target="_blank"><i class="bi bi-facebook"></i></a>
         <a href="#"><i class="bi bi-instagram"></i></a>
-        <a href="#"><i class="bi bi-youtube"></i></a>
+        <a href="https://youtube.com/@kantordesabatupute?si=4Vh9eU-F4dY-13Uz" target="_blank"><i class="bi bi-youtube"></i></a>
         <a href="#"><i class="bi bi-tiktok"></i></a>
       </div>
     </div>

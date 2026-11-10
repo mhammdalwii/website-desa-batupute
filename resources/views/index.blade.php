@@ -6,6 +6,7 @@
     <title>Desa Batupute</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+    <meta name="google-site-verification" content="mp2b-GB7MRZpj7Uq-jO4QaGGLUyid7VPk2GPoodlIws" />
 
     <!-- Favicons -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/img/logo/barru.png') }}">
@@ -37,7 +38,123 @@
     <!-- Main CSS File -->
     <link href="{{asset('profile/css/main.css')}}" rel="stylesheet" />
 <style>
-  
+  .visitor-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+.visitor-counter .btn {
+    background-color: #008374;
+    border: none;
+    font-weight: 600;
+    color: #fff;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.visitor-counter .btn:hover {
+    background-color: #00a68e;
+    transform: translateY(-2px);
+}
+
+/* Tooltip */
+.tooltip-custom {
+    display: none;
+    position: absolute;
+    bottom: 65px;
+    left: 0;
+    background: #ffffff;
+    color: #212529;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    min-width: 230px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Segitiga kecil di bawah tooltip */
+.tooltip-custom::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.visitor-counter:hover .tooltip-custom {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling untuk tabel di tooltip */
+.tooltip-custom .table {
+    margin-bottom: 0;
+}
+
+.tooltip-custom .table td {
+    padding: 5px 0;
+    border: none;
+}
+
+.tooltip-custom .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.tooltip-custom td:first-child {
+    color: #495057;
+}
+
+.tooltip-custom td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: #008374;
+}
+
+/* Mobile view — hanya tampil icon */
+@media (max-width: 768px) {
+    .visitor-counter .text-label {
+        display: none;
+    }
+
+    .visitor-counter .btn {
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .tooltip-custom {
+        bottom: 60px;
+        left: 0px;
+        width: 200px;
+    }
+
+    .tooltip-custom::after {
+        left: 15px;
+    }
+}
+
 </style>
   </head>
 
@@ -376,7 +493,7 @@
               <div class="col-xl-10">
                 <div class="text-center">
                   <a
-                    href="https://youtu.be/b8itw7A3dMI?si=1zXggXspIkyzdIsq"
+                    href="https://youtu.be/LX79k8hB9Qg?si=eTRdeXnsSHgMh2go"
                     class="glightbox play-btn"
                   ></a>
                   <h3>Menelusuri Keindahan Tersembunyi Desa Batupute</h3>
@@ -656,7 +773,7 @@
                     <div class="my-3">
                       <div class="loading">Loading</div>
                       <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
+                      <div class="sent-message">Pesan Anda telah terkirim. Terima kasih!</div>
                     </div>
                     <button type="submit">Kirim</button>
                   </div>

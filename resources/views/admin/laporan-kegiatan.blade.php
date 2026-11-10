@@ -57,13 +57,18 @@
                                             <td>{{$lakegi->lokasi}}</td>
                                             <td>Rp. {{number_format($lakegi->anggaran, 0, ',', '.')}}</td>
                                             <td>
-                                                <a href="{{asset('storage/assets/documents/laporanKegiatan/'.$lakegi->file_laporan)}}" target="_blank">
-                                                Lihat File
-                                                </a>
+                                                @if(empty($lakegi->file_laporan))
+                                                    <span class="text-muted fst-italic">Tidak ada file</span>
+                                                @else
+                                                    <a href="{{ asset('storage/assets/documents/laporanKegiatan/' . $lakegi->file_laporan) }}"
+                                                       target="_blank">
+                                                        Lihat File
+                                                    </a>
+                                                @endif
                                             </td>
                                             <td>
                                                 <a href="{{asset('storage/assets/image/laporanKegiatan/' .$lakegi->foto_kegiatan)}}" class="glightbox">
-                                                    <img src="{{asset('storage/assets/image/laporanKegiatan/' .$lakegi->foto_kegiatan)}}" class="img-fluid rounded" style="width: 85px;" alt="Foto Karyawan" />
+                                                    <img src="{{asset('storage/assets/image/laporanKegiatan/' .$lakegi->foto_kegiatan)}}" class="img-fluid rounded" style="width: 85px;" alt="Foto Kegiatan" />
                                                 </a>
                                             </td>
                                             <td>{{$lakegi->status}}</td>
@@ -247,7 +252,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="foto_kegiatan">Foto Kegiatan</label>
-                                            <input type="file" class="form-control foto-input" name="foto_kegiatan" id="foto_kegiatan">
+                                            <input type="file" class="form-control foto-input" name="foto_kegiatan" id="foto_kegiatan" required>
                                             <small class="error-message" style="color: red; display: none;"></small>
                                         </div>
                                     </div>
